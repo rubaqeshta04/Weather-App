@@ -1,0 +1,17 @@
+{
+  "Gaza": "غزة",
+  "min": "الصغرى",
+  "max": "الكبرى",
+  "date": "مارس ٢٨ ٢٠٢٦، ٣:٤٤:٠٨ م",
+  "light rain": "امطار متوسطة",
+  "clear sky": "سماء صافية",
+  "few clouds": "بعض السحب",
+  "scattered clouds": "سحب متفرقة",
+  "broken clouds": "غيوم متفرقة",
+  "shower rain": "زخات مطر",
+  "rain": "مطر",
+  "thunderstorm": "عاصفة رعدية",
+  "snow": "ثلج",
+  "mist": "شبورة",
+  "overcast clouds": "غيوم ملبدة"
+}
