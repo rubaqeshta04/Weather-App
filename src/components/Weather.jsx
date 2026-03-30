@@ -70,48 +70,79 @@ export default function Weather() {
   }, []);
   return (
     <>
-      <div className={`w-full`} dir={direction}>
-        <div className="bg-[#123c8c] text-white w-full rounded-2xl shadow-2xl shadow-blue-600/80 p-6">
+      <div className={`w-full flex flex-col items-center group`} dir={direction}>
+        <div 
+          className="text-white w-full rounded-3xl p-8 transform transition-all duration-500 hover:scale-[1.02] hover:-translate-y-2 relative overflow-hidden"
+          style={{
+            background: "rgba(255, 255, 255, 0.1)",
+            backdropFilter: "blur(16px)",
+            WebkitBackdropFilter: "blur(16px)",
+            border: "1px solid rgba(255, 255, 255, 0.2)",
+            boxShadow: "0 10px 40px -10px rgba(0,0,0,0.5)",
+          }}
+        >
+          {/* Subtle Glow Effect inside the card */}
+          <div className="absolute top-0 right-0 w-40 h-40 bg-white/10 rounded-full blur-3xl -mr-10 -mt-10 pointer-events-none"></div>
+
           {/* Header */}
-          <div className="flex justify-between items-center mb-2">
-            <Typography variant="h4" sx={{ fontWeight: 600 }}>
+          <div className="flex justify-between items-center mb-4 relative z-10">
+            <Typography variant="h3" sx={{ fontWeight: 800, textShadow: "1px 1px 10px rgba(0,0,0,0.3)" }}>
               {t("Gaza")}
             </Typography>
-            <Typography variant="body2">{dataAndTime}</Typography>
+            <Typography variant="body1" sx={{ opacity: 0.85, fontWeight: 500 }}>{dataAndTime}</Typography>
           </div>
-          <hr className="border-t border-gray-300 mb-4" />
+          <hr className="border-t border-white/20 mb-6" />
 
           {/* Content */}
-          <div className="flex justify-between items-center gap-5">
-            <div className="flex items-start  flex-col">
-              <div className="flex gap-6 items-start justify-start ">
-                <div className="mb-3">
-                  <Typography variant="h2">{temp.number}</Typography>
-                </div>
-                <div>
-                  <img src={temp.icon || null} className="w-20 " />
+          <div className="flex justify-between items-center gap-5 relative z-10">
+            <div className="flex items-start flex-col">
+              <div className="flex gap-4 items-center justify-start mb-2">
+                <Typography variant="h1" sx={{ fontWeight: 900, textShadow: "2px 4px 15px rgba(0,0,0,0.4)" }}>
+                  {temp.number}
+                </Typography>
+                <div className="transform transition-transform duration-500 group-hover:scale-125 group-hover:rotate-6">
+                  <img src={temp.icon || null} className="w-24 drop-shadow-2xl" alt="weather-icon" />
                 </div>
               </div>
 
-              <Typography variant="h6">{t(temp.description)}</Typography>
-              <div className="flex gap-5 text-sm mt-3">
+              <Typography variant="h5" sx={{ textTransform: "capitalize", opacity: 0.9, marginBottom: 1 }}>{t(temp.description)}</Typography>
+              <div className="flex gap-4 text-lg font-medium opacity-80 mt-1 bg-white/10 px-4 py-1.5 rounded-full border border-white/10 shadow-inner">
                 <span>
-                  {t("min")}: {temp.min}
+                  {t("min")}: {temp.min}°
                 </span>
-                <span>|</span>
+                <span className="opacity-50">|</span>
                 <span>
-                  {t("max")}: {temp.max}
+                  {t("max")}: {temp.max}°
                 </span>
               </div>
             </div>
-            <div>
-              <CloudIcon style={{ fontSize: 200 }} />
+            <div className="transform transition-transform duration-1000 group-hover:translate-x-3 group-hover:-translate-y-3 opacity-90 drop-shadow-2xl">
+              <CloudIcon style={{ fontSize: 220 }} />
             </div>
           </div>
         </div>
 
         <Button
-          sx={{ color: "white", marginTop: 2 }}
+          variant="contained"
+          sx={{ 
+            color: "white", 
+            marginTop: 4, 
+            background: "linear-gradient(135deg, rgba(255,255,255,0.1), rgba(255,255,255,0.05))",
+            backdropFilter: "blur(10px)",
+            border: "1px solid rgba(255,255,255,0.2)",
+            borderRadius: "30px",
+            padding: "10px 32px",
+            fontSize: "1.1rem",
+            fontWeight: "bold",
+            textTransform: "none",
+            boxShadow: "0 4px 15px rgba(0,0,0,0.2)",
+            transition: "all 0.4s ease",
+            "&:hover": {
+              background: "linear-gradient(135deg, rgba(255,255,255,0.25), rgba(255,255,255,0.1))",
+              transform: "translateY(-3px)",
+              boxShadow: "0 8px 25px rgba(0,0,0,0.3)",
+            }
+          }}
           onClick={() => {
             if (local === "en") {
               setLocal("ar");
