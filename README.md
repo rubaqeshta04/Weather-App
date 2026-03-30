@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 # Weather App 🌤️
 
 A web application to display current weather with support for Arabic and English languages and RTL/LTR text direction.
@@ -26,8 +26,4 @@ A web application to display current weather with support for Arabic and English
 - **Moment.js** – Date and time formatting with locale support.
 - **react-i18next** – Multi-language support.
 
----
 
-=======
-# Weather-App
->>>>>>> 9e8a56140e16591f5f238ea1b0089dfa3a15d2c3
